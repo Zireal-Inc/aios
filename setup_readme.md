@@ -51,8 +51,8 @@ mkdir libs && cd libs && echo "# libs" > README.md && cd ..
 mkdir tools && cd tools && echo "# tools" > README.md && cd ..
 mkdir configs && cd configs && echo "# configs" > README.md && cd ..
 mkdir scripts && cd scripts && echo "# scripts" > README.md && cd ..
-mkdir features && cd features && echo "# features" > README.md && cd ..
 mkdir packages && cd packages && echo "# packages" > README.md && cd ..
+mkdir docs && cd docs && echo "# docs" > README.md && cd ..
 ```
 
 ### 3. Setup PNPM workspace 
@@ -64,17 +64,27 @@ code pnpm-workspace.yaml
 ```yaml
 packages:
     # executable/launch-able applications
-    - 'apps/*'
+    - 'apps/**'
     # all packages in sub dirs of packages/ and components/
-    - 'packages/*'
+    - 'packages/**'
     # all the configs in the config
-    - 'configs/*'
+    - 'configs/**'
 ```
 
 #### 4. Add PNPM as dev dependency 
 
 ```sh
+code .npmrc
+```
+
+```npmrc
+ignore-workspace-root-check=true  
+```
+
+
+```sh
 pnpm add -D pnpm
+
 ```
 
 
